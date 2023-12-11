@@ -11,6 +11,14 @@ def test_get():
 
 
 def test_slice():
-    assert arrs.my_slice([1, 2, 3, 4], 1, 3) == [2, 3]
-    assert arrs.my_slice([1, 2, 3], 1) == [2, 3]
-    assert arrs.my_slice([1, 2, 3, 4, 5], 0) == [1, 2, 3, 4, 5]
+    assert arrs.my_slice([1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+    assert arrs.my_slice([1, 2, 3, 4, 5]) != [1, 2, 3, 4]
+    assert arrs.my_slice([1, 2, 3, 4, 5], 2) == [3, 4, 5]
+    assert arrs.my_slice([1, 2, 3, 4, 5], end=3) == [1, 2, 3]
+    assert arrs.my_slice([1, 2, 3, 4, 5], start=-3, end=-1) == [3, 4]
+    assert arrs.my_slice([1, 2, 3, 4, 5], start=2) == [3, 4, 5]
+    assert arrs.my_slice([1, 2, 3, 4, 5], end=2) == [1, 2]
+    assert arrs.my_slice([1, 2, 3, 4, 5], start=-3, end=-2) == [3]
+    assert arrs.my_slice([1, 2, 3, 4, 5], start=-5, end=5) == [1, 2, 3, 4, 5]
+    assert arrs.my_slice([]) == []
+    assert arrs.my_slice([1, 2, 3, 4, 5]) != []
